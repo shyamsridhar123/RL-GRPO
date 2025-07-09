@@ -144,5 +144,9 @@ Training duration: 80 samples = 75 minutes
 
 ---
 
+## 📄 **License**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 **Research Status:** Initial feasibility study completed. CPU-based GRPO training demonstrated with measured performance characteristics. Optimization and scaling experiments recommended for future work.
 
