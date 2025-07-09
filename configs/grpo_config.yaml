@@ -1,0 +1,88 @@
+# GRPO Training Configuration
+# Group Relative Policy Optimization - CPU-optimized configuration
+
+# Model configuration
+model:
+  type: "grpo_language_model"
+  name: "Qwen/Qwen2-0.5B-Instruct"  # Small model for CPU training
+  max_length: 256
+  max_prompt_length: 128
+  freeze_base: false
+  use_lora: true  # Use LoRA for efficient training
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.1
+
+# Training configuration
+training:
+  batch_size: 1
+  mini_batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 1e-5
+  num_train_epochs: 1
+  num_ppo_epochs: 1
+  num_generations: 2  # Reduced for CPU efficiency
+  max_new_tokens: 64
+  temperature: 0.7
+  top_p: 0.9
+  warmup_steps: 10
+  save_steps: 50
+  logging_steps: 10
+  eval_steps: 25
+
+# Dataset configuration
+dataset:
+  name: "gsm8k"  # Options: "gsm8k", "custom"
+  split: "train"
+  num_samples: 200
+  task_type: "math"  # Options: "math", "general"
+
+# Reward function configuration
+reward:
+  type: "math_reasoning"  # Options: "math_reasoning", "general_quality", "custom"
+  custom_criteria:
+    min_length: 10
+    max_length: 150
+    required_terms: ["answer", "solution"]
+    forbidden_terms: ["sorry", "cannot"]
+    format_bonus: ["the answer is \\d+", "= \\d+"]
+
+# CPU optimization settings
+cpu_optimization:
+  num_threads: 8  # CPU threads to use
+  low_cpu_mem_usage: true
+  torch_dtype: "float32"  # Use float32 for CPU stability
+  device_map: "cpu"
+
+# Output configuration
+output:
+  dir: "./grpo_output"
+  save_model: true
+  save_logs: true
+  save_plots: true
+  
+# Evaluation configuration
+evaluation:
+  test_prompts:
+    - "What is 15 + 27?"
+    - "A farmer has 17 sheep. All but 9 die. How many are left?"
+    - "If a train travels 60 mph for 2 hours, how far does it go?"
+    - "Solve for x: 3x + 5 = 20"
+  compare_models: true
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  wandb_project: "grpo-cpu-demo"
+  use_wandb: false
+
+# Random seed for reproducibility
+seed: 42
+
+# CPU optimization settings
+cpu_optimization:
+  use_memory_efficient_attention: true
+  gradient_checkpointing: true
+  mixed_precision: false  # Usually not beneficial on CPU
+  num_threads: 4  # Adjust based on your CPU

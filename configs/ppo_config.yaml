@@ -1,0 +1,44 @@
+`# PPO Training Configuration
+
+# Model configuration
+model:
+  type: "rl_language_model"  # Options: "rl_language_model", "actor_critic"
+  name: "gpt2"  # Hugging Face model name
+  freeze_base: false
+  add_value_head: true
+  hidden_size: 768
+
+# Environment configuration
+environment:
+  type: "text_generation"
+  tokenizer_name: "gpt2"
+  max_length: 100
+
+# Agent configuration (PPO)
+agent:
+  learning_rate: 3e-4
+  gamma: 0.99
+  eps_clip: 0.2
+  k_epochs: 4
+  entropy_coef: 0.01
+  value_loss_coef: 0.5
+
+# Training configuration
+training:
+  num_episodes: 1000
+  max_steps_per_episode: 100
+  save_interval: 100
+  eval_interval: 50
+  batch_size: 32
+  gradient_clip: 1.0
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Project name for wandb
+project_name: "llm-rl-ppo"
+
+# Random seed for reproducibility
+seed: 42
