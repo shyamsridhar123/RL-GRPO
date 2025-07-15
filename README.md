@@ -1,40 +1,59 @@
-# CPU-GRPO: Accessible Group Relative Policy Optimization
+# CPU-GRPO: Group Relative Policy Optimization on Consumer Hardware
 
-**CPU-Optimized GRPO Training for Mathematical Reasoning on Consumer Hardware**
+**CPU-optimized implementation of GRPO for reinforcement learning training**
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.5+-red.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 📋 Project Overview
+## Overview
 
-This project demonstrates the **accessibility of advanced AI training methods** by implementing Group Relative Policy Optimization (GRPO) for consumer CPU hardware. While not introducing novel algorithms, it provides a **practical engineering solution** that makes state-of-the-art RL fine-tuning accessible without GPU requirements.
+This project implements Group Relative Policy Optimization (GRPO) for CPU-only training environments. GRPO is a reinforcement learning method for fine-tuning language models that typically requires GPU infrastructure. This implementation adapts the algorithm for consumer CPU hardware through memory optimization and efficient training strategies.
 
-### 🎯 Key Achievement
-**494M parameter model training on 14-core CPU in ~46 seconds with 57MB memory usage** *(15 samples, 3-stage progressive training)*
+The project demonstrates that RL-based fine-tuning can be performed on accessible hardware, making it available for educational use and resource-constrained research scenarios.
 
-### ✅ Technical Contributions
-- **Systems Engineering:** CPU-optimized GRPO implementation using existing techniques
-- **Accessibility Demo:** Proof that advanced RL training works on consumer hardware  
-- **Educational Tool:** Reference implementation for resource-constrained scenarios
-- **Performance Baseline:** Documented metrics for CPU-based training comparisons
+## Technical Approach
 
-## 🔬 Performance Results
+The implementation combines existing optimization techniques to enable GRPO training on CPU:
 
-### Latest Evaluation (July 13, 2025)
+- **Progressive training:** 3-stage curriculum learning approach
+- **Memory optimization:** Dynamic quantization and gradient checkpointing
+- **Fisher Information:** Continual learning to prevent catastrophic forgetting
+- **CPU acceleration:** Intel MKL and multi-core utilization
 
-| Metric | Base Model | CPU-Trained | Improvement |
-|--------|------------|-------------|-------------|
-| **Overall Accuracy** | 87% | 89% | **+2.3%** |
-| **Reasoning Quality** | 71.7% | 80.0% | **+8.3%** |
-| **Advanced Problems** | 85% | 93% | **+8.0%** |
+## Performance Results
+
+### Evaluation Results (July 13, 2025)
+
+| Metric | Base Model | CPU-Trained | Change |
+|--------|------------|-------------|--------|
+| **Overall Accuracy** | 87% | 89% | +2% |
+| **Reasoning Quality** | 71.7% | 80.0% | +8.3% |
+| **Advanced Problems** | 85% | 93% | +8% |
 | **Training Time** | - | 46 seconds | CPU-only |
-| **Memory Usage** | - | 57 MB | Consumer-grade |
+| **Memory Usage** | - | 57 MB | Consumer hardware |
 
-### Hardware Requirements
+### System Requirements
 - **CPU:** 12+ cores recommended (tested on 14-core Intel)
 - **Memory:** 8GB+ RAM (peak usage ~4GB)
-- **Cost:** <$1000 consumer hardware setup
+- **Hardware cost:** Consumer-grade setup under $1000
+
+## Applications
+
+### Educational Use Cases
+- University courses on reinforcement learning and language model training
+- Research projects in resource-constrained environments
+- Individual learning and experimentation with RL methods
+
+### Research Applications  
+- Prototyping RL approaches without GPU infrastructure
+- Baseline comparisons for CPU vs GPU training efficiency
+- Accessibility studies for AI training methods
+
+### Practical Benefits
+- Lower energy consumption compared to GPU training
+- Reduced infrastructure costs for small-scale experiments
+- Reproducible results on standard consumer hardware
 
 ## 🏗️ Project Architecture
 
@@ -77,21 +96,21 @@ RL-GRPO/
 └── 📁 notebooks/               # Research notebooks
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
-### 1. Web Interface (Recommended)
+### 1. Web Interface
 ```bash
 python app.py
 # Opens Gradio interface at http://localhost:7860
-# Features: Training, evaluation, model comparison, real-time monitoring
+# Provides training interface, model comparison, and evaluation tools
 ```
 
-### 2. Command Line Training & Evaluation
+### 2. Command Line Training
 ```bash
 # Run complete training and evaluation pipeline
 python run_scaled_training_and_eval.py
 
-# Or run components separately:
+# Or run individual components:
 python optimization/unified_progressive_training.py  # Training only
 python experiments/evaluate_unified_model.py        # Evaluation only
 ```
@@ -101,6 +120,27 @@ python experiments/evaluate_unified_model.py        # Evaluation only
 pip install -r requirements.txt
 # Key dependencies: torch, transformers, trl, datasets, gradio, psutil
 ```
+
+## Implementation Details
+
+### Progressive Training Approach
+The system uses a 3-stage curriculum learning approach:
+
+1. **Stage 1:** Basic arithmetic and simple reasoning
+2. **Stage 2:** Multi-step problem solving  
+3. **Stage 3:** Advanced mathematical reasoning
+
+### GRPO on CPU
+- **Algorithm:** Uses TRL's Group Relative Policy Optimization implementation
+- **Memory optimization:** Dynamic quantization and gradient checkpointing
+- **CPU acceleration:** Intel MKL libraries and multi-core utilization
+- **Continual learning:** Fisher Information approximation to prevent forgetting
+
+### Technical Specifications
+- **Model:** Qwen2-0.5B-Instruct (494M parameters)
+- **Training approach:** Progressive curriculum with Fisher Information
+- **Memory management:** Adaptive batch sizing and cleanup routines
+- **Evaluation:** Mathematical reasoning tasks (GSM8K-style problems)
 
 ## 🧠 Technical Implementation
 
@@ -297,12 +337,25 @@ We welcome contributions that improve the educational and research value:
 
 Please ensure contributions maintain the project's focus on accessibility and educational value.
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Project Status:** ✅ **Stable Reference Implementation**  
-CPU-based GRPO training successfully demonstrated with comprehensive performance characterization. Ideal for educational use, research baselines, and accessibility applications.
+## Getting Started
+
+To get started with CPU-based GRPO training:
+
+```bash
+git clone https://github.com/shyamsridhar123/RL-GRPO.git
+cd RL-GRPO
+pip install -r requirements.txt
+python app.py
+```
+
+---
+
+**Project Status:** Stable implementation  
+CPU-based GRPO training system with comprehensive documentation. Suitable for educational use, research baselines, and accessibility applications.
 
