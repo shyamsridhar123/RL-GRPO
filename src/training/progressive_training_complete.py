@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Progressive GRPO Training Script
-Implements curriculum learning with increasing difficulty
+Progressive GRPO Training with Ultra-Optimized Integration
+Implements curriculum learning with ultra-optimized components
 """
 
 import os
@@ -375,16 +375,6 @@ def run_progressive_training_test(num_samples_per_stage: int = 10) -> Dict:
     results = trainer.run_progressive_training()
     
     return results
-
-
-def progressive_training():
-    """Implement progressive curriculum learning for GRPO (legacy function)"""
-    
-    print("🎓 Starting Progressive GRPO Training (Legacy Version)")
-    print("=" * 60)
-    
-    # Use the new progressive training system
-    return run_progressive_training_test(num_samples_per_stage=20)
 
 
 if __name__ == "__main__":

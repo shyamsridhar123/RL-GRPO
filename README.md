@@ -1,51 +1,70 @@
-# CPU-Based GRPO Training Research
+# GRPO Training System
+**Ultra-Optimized Reinforcement Learning from Human Feedback (RLHF) for Mathematical Reasoning**
 
-**Repository:** [https://github.com/shyamsridhar123/RL-GRPO](https://github.com/shyamsridhar123/RL-GRPO)  
-**Research Focus:** Evaluate GRPO training feasibility on consumer CPU hardware  
-**Methodology:** Experimental validation with measured performance analysis  
-**Status:** Proof-of-concept completed with documented results  
+## 🎯 Mission
+Ultra-fast, memory-efficient GRPO training that maintains GSM8K reasoning accuracy through progressive learning.
 
----
-
-## 🎯 **Research Objective**
-
-### **Problem Statement**
-Investigate whether Group Relative Policy Optimization (GRPO) can function effectively on consumer CPU hardware as an alternative to GPU-based training infrastructure.
-
-### **Hypothesis**
-Consumer-grade CPU hardware with software optimization can support practical AI fine-tuning workflows for research and educational applications.
-
-### **Research Significance**
-This study addresses the accessibility barrier in AI training by evaluating CPU-based alternatives to expensive GPU infrastructure, potentially enabling broader participation in AI research and education.
-
----
-
-## 🚀 **Getting Started**
-
-### **Repository Setup**
-```bash
-git clone https://github.com/shyamsridhar123/RL-GRPO.git
-cd RL-GRPO
-pip install -r requirements.txt
+## 📁 Project Structure
+```
+RL/
+├── 📱 app.py                    # Main Gradio application
+├── 📋 requirements.txt          # Dependencies  
+├── ⚙️  setup.py                # Package setup
+├── 📄 README.md                # This file
+├── 
+├── 📁 src/                      # Core source code
+│   ├── training/               # Training algorithms
+│   ├── models/                 # Model architectures  
+│   ├── agents/                 # RL agents
+│   ├── environments/           # Training environments
+│   └── utils/                  # Utilities
+│
+├── 📁 experiments/             # Research experiments & tests
+│   ├── baseline_accuracy_validation.py
+│   ├── test_complete_ultra_optimized_system.py
+│   └── ...test files
+│
+├── 📁 optimization/            # Performance optimizations
+│   ├── ultra_optimized_training.py
+│   ├── ultra_fast_training.py
+│   └── run_hybrid_training.py
+│
+├── � scripts/                 # Utility scripts & demos
+│   ├── gradio_ultra_fast.py
+│   └── launch_grpo_demo.py
+│
+├── 📁 documentation/           # Research docs & analysis
+│   ├── PROGRESSIVE_TRAINING_ROADMAP.md
+│   ├── ARXIV_COMPARISON_ANALYSIS.md
+│   └── performance reports
+│
+├── 📁 configs/                 # Configuration files
+├── 📁 models/                  # Saved models
+├── 📁 logs/                    # Training logs
+└── 📁 notebooks/               # Jupyter notebooks
 ```
 
-### **Web Interface**
+## 🚀 Quick Start
+
+### 1. Launch Main Application
 ```bash
 python app.py
 ```
-Gradio-based interface for interactive experimentation
 
-### **Command Line Training**
+### 2. Run Ultra-Optimized Training  
 ```bash
-python ultra_fast_training.py
+python optimization/ultra_optimized_training.py
 ```
-Direct GRPO training with hardware acceleration
 
-### **Benchmark Evaluation**
+### 3. Test Complete System
 ```bash
-python experiments/benchmark_analysis.py
+python experiments/test_complete_ultra_optimized_system.py
 ```
-Model evaluation against GSM8K mathematical reasoning dataset
+
+### 4. Run Progressive Training (TODO)
+```bash
+python src/training/progressive_training.py
+```
 
 ---
 

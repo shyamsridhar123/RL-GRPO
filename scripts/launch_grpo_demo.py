@@ -4,6 +4,11 @@ Launch script for the GRPO Demo App
 Quick launcher for the cleaned-up Gradio interface
 """
 
+import sys
+import os
+# Add parent directory to import the main app
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 import app
 
 if __name__ == "__main__":

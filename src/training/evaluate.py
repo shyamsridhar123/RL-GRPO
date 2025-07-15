@@ -15,10 +15,10 @@ from tqdm import tqdm
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from agents import PPOAgent
-from models import RLLanguageModel, ActorCriticModel
-from environments import TextGenerationEnv
-from utils import load_checkpoint, setup_logging
+from src.agents import PPOAgent
+from src.models import RLLanguageModel, ActorCriticModel
+from src.environments import TextGenerationEnv
+from src.utils import load_checkpoint, setup_logging
 
 
 def parse_args():
