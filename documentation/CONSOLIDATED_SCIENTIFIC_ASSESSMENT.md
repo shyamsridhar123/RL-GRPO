@@ -213,7 +213,6 @@ Systematic Analysis of Memory-Accuracy Trade-offs in Resource-Constrained Settin
 ```
 - **Scope:** Test 5+ models, 1000+ problems across multiple domains
 - **Contribution:** Theoretical framework for predicting quantization impact
-- **Timeline:** 6-12 months for comprehensive study
 - **Venues:** Educational AI workshops, systems conferences
 
 **2. Comparative Hardware Analysis**
@@ -223,7 +222,6 @@ Comprehensive Performance and Accessibility Analysis"
 ```
 - **Scope:** Benchmark multiple architectures and optimization strategies
 - **Contribution:** Cost-benefit framework for deployment decisions
-- **Timeline:** 12-18 months for complete analysis
 - **Venues:** Systems conferences, sustainability workshops
 
 **3. Educational Impact Study**
@@ -233,7 +231,6 @@ on Computer Science Education and Research Outcomes"
 ```
 - **Scope:** Study learning outcomes and accessibility barriers
 - **Contribution:** Pedagogical framework for resource-constrained AI education
-- **Timeline:** 18-24 months including user studies
 - **Venues:** Educational technology conferences, accessibility workshops
 
 ### Engineering Extensions

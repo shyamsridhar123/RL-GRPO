@@ -17,9 +17,9 @@ The project demonstrates that RL-based fine-tuning can be performed on accessibl
 The implementation combines existing optimization techniques to enable GRPO training on CPU:
 
 - **Progressive training:** 3-stage curriculum learning approach
-- **Memory optimization:** Dynamic quantization and gradient checkpointing
+- **Memory optimization:** Post-training INT8 dynamic quantization and gradient checkpointing
 - **Fisher Information:** Continual learning to prevent catastrophic forgetting
-- **CPU acceleration:** Intel MKL and multi-core utilization
+- **CPU acceleration:** Intel MKL and multi-core utilization (14 logical cores)
 
 ## Performance Results
 
@@ -132,9 +132,28 @@ The system uses a 3-stage curriculum learning approach:
 
 ### GRPO on CPU
 - **Algorithm:** Uses TRL's Group Relative Policy Optimization implementation
-- **Memory optimization:** Dynamic quantization and gradient checkpointing
-- **CPU acceleration:** Intel MKL libraries and multi-core utilization
+- **Memory optimization:** Post-training INT8 dynamic quantization of Linear layers, gradient checkpointing
+- **CPU acceleration:** Intel MKL libraries and multi-core utilization (14 logical cores)
 - **Continual learning:** Fisher Information approximation to prevent forgetting
+
+### Dynamic Quantization Implementation
+The system applies PyTorch's standard dynamic quantization for CPU inference optimization:
+
+```python
+# Applied post-training for inference/evaluation
+model = torch.quantization.quantize_dynamic(
+    model, 
+    {torch.nn.Linear},  # Only Linear layers (attention, feedforward)
+    dtype=torch.qint8   # 8-bit signed integers
+)
+```
+
+**Quantization Details:**
+- **Target:** Linear layers only (attention and feedforward components)
+- **Timing:** Post-training, applied during inference/evaluation phases
+- **Data Type:** INT8 quantization (4x memory reduction from FP32)
+- **Method:** Dynamic quantization (no calibration dataset required)
+- **Training:** Occurs in FP32, quantization applied for model serving
 
 ### Technical Specifications
 - **Model:** Qwen2-0.5B-Instruct (494M parameters)
