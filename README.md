@@ -30,7 +30,7 @@ The implementation combines existing optimization techniques to enable GRPO trai
 | **Overall Accuracy** | 87% | 89% | +2% |
 | **Reasoning Quality** | 71.7% | 80.0% | +8.3% |
 | **Advanced Problems** | 85% | 93% | +8% |
-| **Training Time** | - | 46 seconds | CPU-only |
+| **Training Time/step** | - | 46 seconds | CPU-only |
 | **Memory Usage** | - | 57 MB | Consumer hardware |
 
 ### System Requirements
