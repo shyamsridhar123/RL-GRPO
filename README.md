@@ -36,7 +36,7 @@ The implementation combines existing optimization techniques to enable GRPO trai
 ### System Requirements
 - **CPU:** 12+ cores recommended (tested on 14-core Intel)
 - **Memory:** 8GB+ RAM (peak usage ~4GB)
-- **Hardware cost:** Consumer-grade setup under $1000
+- **Hardware cost:** Consumer-grade laptop under $1000
 
 ## Applications
 
